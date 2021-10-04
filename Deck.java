@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+import java.util.Collections;
 
 public class Deck {
 	//Les cartes a piocher
@@ -7,6 +8,7 @@ public class Deck {
 	public Deck() {
 		this.deck = new LinkedList<Carte>(); 
 		this.remplir();
+		this.melanger();
 	}
 
 	//Remplit le deck de 4 cartes de mêmes valeur, en ignorant les différentes couleurs et symboles
@@ -35,5 +37,9 @@ public class Deck {
 	
 	public LinkedList<Carte> getDeck(){
 		return this.deck;
+	}
+	
+	public void melanger() {
+		Collections.shuffle(this.getDeck());
 	}
 }

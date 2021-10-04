@@ -30,21 +30,22 @@ public class Partie {
 		p.getListe().add(j1);
 		p.getListe().add(cr);
 		
-		//System.out.print(d); 
-		//cr.proposer(j1,d);
-		
+		System.out.println(d); 
+		cr.proposer(j1,d);
+		System.out.println(d); 
 		p.init(d);
+		System.out.println(d); 
 		
 		for (Joueur j : p.getListe()) {
 			cr.proposer(j, d);
 		}
-
-		//Ne demande pas la valeur pour les as
+		System.out.println(d); 
 		while (!d.getDeck().isEmpty()) {
 			j1.piocher(d);
+			System.out.println(d); 
 		}
 
-	
+	//  probleme deuxieme as --> dans demanderValeur nom=nextInt
 	}
 
 }

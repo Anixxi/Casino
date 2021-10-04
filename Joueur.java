@@ -10,8 +10,8 @@ public class Joueur {
 	public void piocher(Deck d) {
 		try {
 			if(d.getDeck().peek().getValeur() == 1 ) {
-				Carte c = d.getDeck().removeFirst();
 				DemanderValeur();
+				Carte c = d.getDeck().removeFirst();
 				main.add(c);
 				return ;
 			}
@@ -27,16 +27,18 @@ public class Joueur {
 	
 	private void DemanderValeur() {
 		 Scanner scanner = new Scanner(System.in);
+		 System.out.println("Ecrire 1 ou 11 pour choisir la valeur de As");
+		 
 		 int nombre=scanner.nextInt();
 
 		 while(nombre != 1 && nombre != 11) {
-			 System.out.println("Ecrire 1 ou 11 pour choisir la valeur de Ace");
+			 System.out.println("Ecrire 1 ou 11");
 			 	//Lit l'entier écrit par l'utilisateur et l'affecte à  la variable nombre du programme
 		      nombre = scanner.nextInt();
 		        // Affiche le nombre saisit par l'utilisateur
 		     
 		 }
-		 System.out.println("Vous avez choisi" + (nombre) + "comme valeur de votre Ace");
+		 System.out.println("Vous avez choisi " + (nombre) + " comme valeur de votre As");
 		 scanner.close();
 		
 	}
