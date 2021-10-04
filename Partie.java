@@ -14,7 +14,7 @@ public class Partie {
 	
 	public void init(Deck d) {
 		for(int i = 0; i < 2 ; i++) {
-			for( Joueur j : listeJoueurs ) {
+			for( Joueur j : this.getListe() ) {
 				j.piocher(d);
 			}
 		}
@@ -23,7 +23,7 @@ public class Partie {
 
 	
 	public static void main(String[] args) {
-		Joueur j1 = new Joueur();
+		Joueur j1 = new Joueur21();
 		Croupier cr = new Croupier();
 		Deck d = new Deck();
 		Partie p = new Partie();

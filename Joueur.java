@@ -27,9 +27,10 @@ public class Joueur {
 	
 	private void DemanderValeur() {
 		 Scanner scanner = new Scanner(System.in);
-		 int nombre=0;
-		 while(!(scanner.nextInt()==1)||!(scanner.nextInt()==11)) {
-			 System.out.print("Ecrire 1 ou 11 pour choisir la valeur de Ace");
+		 int nombre=scanner.nextInt();
+
+		 while(nombre != 1 && nombre != 11) {
+			 System.out.println("Ecrire 1 ou 11 pour choisir la valeur de Ace");
 			 	//Lit l'entier écrit par l'utilisateur et l'affecte à  la variable nombre du programme
 		      nombre = scanner.nextInt();
 		        // Affiche le nombre saisit par l'utilisateur
@@ -56,5 +57,9 @@ public class Joueur {
 		}
 		
 		return t;
+	}
+	
+	public Joueur() {
+		this.main = new LinkedList<Carte>();
 	}
 }

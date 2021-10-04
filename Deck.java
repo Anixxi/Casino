@@ -15,8 +15,9 @@ public class Deck {
 		
 		for (int v=0; v<4; v++) {
 					
-			for (int i = 0 ; i <= 13 ; i++) {
+			for (int i = 1 ; i <= 13 ; i++) {
 				c = new Carte(Carte.symboles(i),i);
+				this.deck.add(c);
 			}
 		}
 	}
