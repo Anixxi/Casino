@@ -24,20 +24,33 @@ public class Joueur {
 		
 	}
 	
+	
 	private void DemanderValeur() {
+		 Scanner scanner = new Scanner(System.in);
+		 int nombre=0;
+		 while(!(scanner.nextInt()==1)||!(scanner.nextInt()==11)) {
+			 System.out.print("Ecrire 1 ou 11 pour choisir la valeur de Ace");
+			 	//Lit l'entier écrit par l'utilisateur et l'affecte à  la variable nombre du programme
+		      nombre = scanner.nextInt();
+		        // Affiche le nombre saisit par l'utilisateur
+		     
+		 }
+		 System.out.println("Vous avez choisi" + (nombre) + "comme valeur de votre Ace");
+		 scanner.close();
 		
 	}
 
 	//Depend du type de joueur 
 	//PLus tard : methode abstraite
 	public  boolean accepter() {
-		return false;
+		return true;
 	}
 	
 	//Recuperer valeur totale dans main
 	public int getTotal() {
 		int t = 0;
 		
+		if (this.main.isEmpty()) return 0;
 		for(Carte c : this.main) {
 			t+=c.getValeur();
 		}

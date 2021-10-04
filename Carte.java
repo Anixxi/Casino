@@ -21,7 +21,7 @@ public class Carte {
 		return this.symbole;
 	}
 
-	public String symboles(int val) { 
+	public static String symboles(int val) { 
 		switch(val) {
 			
 			case 11:

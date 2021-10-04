@@ -11,15 +11,17 @@ public class Deck {
 
 	//Remplit le deck de 4 cartes de mêmes valeur, en ignorant les différentes couleurs et symboles
 	private void remplir() {
-		Carte c = null;
+		Carte c ;
 		
 		for (int v=0; v<4; v++) {
 					
 			for (int i = 0 ; i <= 13 ; i++) {
-				c = new Carte(c.symboles(i),i);
+				c = new Carte(Carte.symboles(i),i);
 			}
 		}
 	}
+	
+
 	
 	@Override
 	public String toString() {
