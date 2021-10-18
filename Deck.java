@@ -19,6 +19,7 @@ public class Deck {
 					
 			for (int i = 1 ; i <= 13 ; i++) {
 				c = new Carte(Carte.symboles(i),i);
+				if(c.getValeur() > Carte.getMax()) c.setValeur(Carte.getMax());
 				this.deck.add(c);
 			}
 		}

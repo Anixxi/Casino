@@ -3,7 +3,7 @@ public class Carte {
 	
 	private int valeur;
 	private String symbole;
-	
+	private static final int max = 10;
 	
 	public Carte(String symbole,int valeur) {
 		this.symbole= symbole;
@@ -11,8 +11,11 @@ public class Carte {
 		
 	}
 	
-	public int getValeur() {
+	public static int getMax() {
+		return max;
+	}
 	
+	public int getValeur() {
 		return this.valeur;
 		
 	}
@@ -35,6 +38,10 @@ public class Carte {
 			default :
 				return String.valueOf(val);
 		}
+	}
+
+	public void setValeur(int nb) {
+		this.valeur = nb;
 		
 	}
 

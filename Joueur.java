@@ -1,18 +1,22 @@
 import java.util.LinkedList;
 import java.util.Scanner;
 
-public class Joueur {
-	int BlackJack = 21;
+public abstract class Joueur {
+
+	protected int BlackJack = 21;
 	
-	LinkedList<Carte> main ;
+	private LinkedList<Carte> main ;
+	private String nom;
+	private boolean aGagné;
 	
 	// si "AS" demander valeur
-	public void piocher(Deck d) {
+	public void piocher(Deck d,Scanner sc) {
 		try {
 			if(d.getDeck().peek().getValeur() == 1 ) {
-				DemanderValeur();
+				int nb=DemanderValeur(sc);
 				Carte c = d.getDeck().removeFirst();
-				main.add(c);
+				c.setValeur(nb);
+				getMain().add(c);
 				return ;
 			}
 			main.add(d.getDeck().removeFirst());
@@ -24,11 +28,15 @@ public class Joueur {
 		
 	}
 	
+	public boolean aPerdu() {
+		return this.getTotal() > BlackJack;
+	}
 	
-	private void DemanderValeur() {
-		 Scanner scanner = new Scanner(System.in);
-		 System.out.println("Ecrire 1 ou 11 pour choisir la valeur de As");
-		 
+	
+	protected int DemanderValeur(Scanner scanner) {
+		 System.out.println("Joueur " + this.nom + " écrivez 1 ou 11 pour choisir la valeur de l'as");
+
+		 System.out.println("Main courante : " + this.getTotal());
 		 int nombre=scanner.nextInt();
 
 		 while(nombre != 1 && nombre != 11) {
@@ -38,16 +46,13 @@ public class Joueur {
 		        // Affiche le nombre saisit par l'utilisateur
 		     
 		 }
-		 System.out.println("Vous avez choisi " + (nombre) + " comme valeur de votre As");
-		 scanner.close();
+		 System.out.println("Vous avez choisi " + (nombre) + " comme valeur de votre as");
+		 return nombre;
 		
 	}
 
 	//Depend du type de joueur 
-	//PLus tard : methode abstraite
-	public  boolean accepter() {
-		return true;
-	}
+	public  abstract boolean accepter(Deck d);
 	
 	//Recuperer valeur totale dans main
 	public int getTotal() {
@@ -61,7 +66,26 @@ public class Joueur {
 		return t;
 	}
 	
-	public Joueur() {
+	public String getNom() {
+		return nom;
+	}
+	
+	public LinkedList<Carte> getMain() {
+		return main;
+	}
+	
+	public Joueur(String n) {
 		this.main = new LinkedList<Carte>();
+		this.nom = n;
+		this.aGagné = false;
+	}
+
+	public boolean isHiLow() {
+		return this.getClass() == JoueurHiLow.class;
+	}
+
+	public void setAgagné() {
+		this.aGagné = true;
+		
 	}
 }
